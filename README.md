@@ -1,6 +1,7 @@
 # M/M/s//N
 
 Simulació d'una cua amb N clients possibles (únics) i s servidors. Es serviran un total de n clients.
+Els clients arribaran i seran servits d'acord amb una distribució exponencial.
 
 Quan arriba un client:
 * Si tots els servidors estan plens anirà al que acabi abans.
