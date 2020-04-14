@@ -109,6 +109,18 @@ for servits=1:n
     T.Plane(next)=plane; %Guardem el número d'avioneta a la següent.
 end
 
+%Ordenar la taula segons l'ordre d'arribada.
+T = sortrows(T,'Arrival_Time','ascend');
+
+%Eliminar els N clients que no hem servit, ja que només era per calcular el seu temps, (seran els últims N clients)
+toDelete = T.Server == 0;
+T(toDelete,:) = [];
+
+%Calcular el seu Num_Repair adient.
+for i=1:n
+T.Num_Repair(i)=i;
+end
+
 %En el cas de voler incloure el idle time final del tècnic que ha acabat abans: (Temps que espera a que acabi l'altre tècnic)
 %{ 
 %Final idle time: temps de descans dels servidors que no shan utilitzat perque ja havien acabat mentre lúltim acabava.
